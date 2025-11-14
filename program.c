@@ -6,6 +6,13 @@
 #define LIGNES 3
 #define COLONNES 4
 
+void repeter(char motif[], int nb)
+{
+    for(int i = 0; i<nb; i++)
+        printf("  %s ", motif);
+    printf("\n");    
+}
+
 int main() 
 {
    printf(" _____________      _____________      _____________      _____________ \n");
@@ -84,17 +91,18 @@ int nbr_cartes=MAX_CARTES;
     }
 
     for (int i=0; i<LIGNES; i++){
-        for (int j=0; j<COLONNES; j++){
-            printf(" _____________ ");
-        }
-        printf("\n");
-        for (int j=0; j<COLONNES; j++){
-            printf("|             |");
-        }
-        printf("\n");
-    }
+        repeter("_____________", COLONNES);
 
+        for (int j = 0; j < COLONNES; j++) {
+            printf("   %3d   ", plateau[i][j]); 
+        }
+        printf("\n");
+
+        repeter("|           |", COLONNES);
+        repeter ("_____________", COLONNES);
+        
+    }
    
-return 0;
+    return 0;
 }
 
