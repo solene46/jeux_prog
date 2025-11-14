@@ -85,10 +85,13 @@ int nbr_cartes=MAX_CARTES;
 
     for (int i=0; i<LIGNES; i++){
         for (int j=0; j<COLONNES; j++){
-            printf(" _____________");
+            printf(" _____________ ");
         }
         printf("\n");
-
+        for (int j=0; j<COLONNES; j++){
+            printf("|             |");
+        }
+        printf("\n");
     }
 
    
