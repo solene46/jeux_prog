@@ -8,7 +8,7 @@
 
 int main() 
 {
-   printf(" _____________     _____________      _____________      _____________ \n");
+   printf(" _____________      _____________      _____________      _____________ \n");
    printf("|             |    |             |    |             |    |             |\n");
    printf("| S           |    | S           |    | S           |    | S           |\n");
    printf("|  K          |    |  K          |    |  K          |    |  K          |\n");
@@ -36,6 +36,7 @@ int main()
    printf("|             |    |             |    |             |    |             |\n");
    printf("|_____________|    |_____________|    |_____________|    |_____________|\n");
    
+int nbr_cartes=MAX_CARTES;
 
    int pioche [MAX_CARTES]={
       -2,-2,-2,-2,-2,
@@ -65,28 +66,22 @@ int main()
    };
 
 
+    int plateau[LIGNES][COLONNES]; 
 
-{
-    int plateau[LIGNES][COLONNES]; // création d’un tableau 3x4
-
-    // on met des zéros au départ dans toutes les cases
     for (int i = 0; i < LIGNES; i++) {
         for (int j = 0; j < COLONNES; j++) {
-            plateau[i][j] = 0;
+            plateau[i][j] = pioche [nbr_cartes-1];
+            nbr_cartes=nbr_cartes-1;
         }
-    }
+    
 
-    // on affiche le tableau
+
     for (int i = 0; i < LIGNES; i++) {
         for (int j = 0; j < COLONNES; j++) {
-            printf("%3d ", plateau[i][j]); // %3d = afficher un entier aligné
+            printf("%3d ", plateau[i][j]); 
         }
         printf("\n");
     }
-
-    return 0;
-}
-
 
 
 
