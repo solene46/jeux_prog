@@ -9,7 +9,7 @@
 void repeter(char motif[], int nb)
 {
     for(int i = 0; i<nb; i++)
-        printf("  %s ", motif);
+        printf("%s", motif);
     printf("\n");    
 }
 
@@ -91,15 +91,20 @@ int nbr_cartes=MAX_CARTES;
     }
 
     for (int i=0; i<LIGNES; i++){
-        repeter("_____________", COLONNES);
+        repeter(" _____________ ", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
 
         for (int j = 0; j < COLONNES; j++) {
-            printf("   %3d   ", plateau[i][j]); 
+            printf("|    %3d      |", plateau[i][j]); 
         }
         printf("\n");
-
-        repeter("|           |", COLONNES);
-        repeter ("_____________", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|_____________|", COLONNES);
         
     }
    
