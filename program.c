@@ -73,7 +73,7 @@ int nbr_cartes=MAX_CARTES;
             plateau[i][j] = pioche [nbr_cartes-1];
             nbr_cartes=nbr_cartes-1;
         }
-    
+    }
 
 
     for (int i = 0; i < LIGNES; i++) {
@@ -83,7 +83,13 @@ int nbr_cartes=MAX_CARTES;
         printf("\n");
     }
 
+    for (int i=0; i<LIGNES; i++){
+        for (int j=0; j<COLONNES; j++){
+            printf(" _____________");
+        }
+        printf("\n");
 
+    }
 
    
 return 0;
