@@ -2,9 +2,11 @@
 #include <math.h>
 #include <stdbool.h>
 #include<stdlib.h>// rand
+#include<time.h>
 #define MAX_CARTES 150
 #define LIGNES 3
 #define COLONNES 4
+
 
 void repeter(char motif[], int nb)
 {
@@ -15,6 +17,7 @@ void repeter(char motif[], int nb)
 
 int main() 
 {
+   srand(time(NULL));
    printf(" _____________      _____________      _____________      _____________ \n");
    printf("|             |    |             |    |             |    |             |\n");
    printf("| S           |    | S           |    | S           |    | S           |\n");
@@ -77,7 +80,7 @@ int nbr_cartes=MAX_CARTES;
 
     for (int i = 0; i < LIGNES; i++) {
         for (int j = 0; j < COLONNES; j++) {
-            plateau[i][j] = pioche [nbr_cartes-1];
+            plateau[i][j] = pioche [nbr_cartes-1]+20;
             nbr_cartes=nbr_cartes-1;
         }
     }
@@ -89,8 +92,10 @@ int nbr_cartes=MAX_CARTES;
         }
         printf("\n");
     }
+    
 
     for (int i=0; i<LIGNES; i++){
+        printf ( "      %d       .      %d      .      %d      .      %d      \n", 1+ 4*i,2+4*i,3+4*i,4+4*i);
         repeter(" _____________ ", COLONNES);
         repeter("|             |", COLONNES);
         repeter("|             |", COLONNES);
@@ -98,7 +103,13 @@ int nbr_cartes=MAX_CARTES;
         repeter("|             |", COLONNES);
 
         for (int j = 0; j < COLONNES; j++) {
-            printf("|    %3d      |", plateau[i][j]); 
+           if (plateau[i][j]>=20 ){
+            printf("|    skyjo    |");
+           }
+           esle {
+            printf("|    %3d      |", plateau[i][j]);
+           }
+            
         }
         printf("\n");
         repeter("|             |", COLONNES);
