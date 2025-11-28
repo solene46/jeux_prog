@@ -15,6 +15,41 @@ void repeter(char motif[], int nb)
     printf("\n");    
 }
 
+void retourner_carte (int plateau[][COLONNES], int choix){
+
+     int ligne= (choix-1)/4;
+        int colonne= (choix-1)%4;
+
+    plateau [ligne][colonne]= plateau [ligne][colonne]-20;
+}
+
+void afficher_plateau(int plateau[][COLONNES])
+{   
+    for (int i=0; i<LIGNES; i++){
+        printf ( "      %d       .      %d      .      %d      .      %d      \n", 1+ 4*i,2+4*i,3+4*i,4+4*i);
+        repeter(" _____________ ", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+
+        for (int j = 0; j < COLONNES; j++) {
+           if (plateau[i][j]>=18 ){
+            printf("|    skyjo    |");
+           }
+           else {
+            printf("|    %3d      |", plateau[i][j]);
+           }
+            
+        }
+        printf("\n");
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|             |", COLONNES);
+        repeter("|_____________|", COLONNES);
+            
+    }}
+
 int main() 
 {
    srand(time(NULL));
@@ -92,33 +127,20 @@ int nbr_cartes=MAX_CARTES;
         }
         printf("\n");
     }
+
+    afficher_plateau(plateau);
     
+   int choix1; 
+   int choix2;  //début jeux 
 
-    for (int i=0; i<LIGNES; i++){
-        printf ( "      %d       .      %d      .      %d      .      %d      \n", 1+ 4*i,2+4*i,3+4*i,4+4*i);
-        repeter(" _____________ ", COLONNES);
-        repeter("|             |", COLONNES);
-        repeter("|             |", COLONNES);
-        repeter("|             |", COLONNES);
-        repeter("|             |", COLONNES);
+        printf("choisir deux carte:");
+        scanf("%d %d", &choix1,&choix2);  //bien mettre un espace entre les deux chiffres 
 
-        for (int j = 0; j < COLONNES; j++) {
-           if (plateau[i][j]>=20 ){
-            printf("|    skyjo    |");
-           }
-           esle {
-            printf("|    %3d      |", plateau[i][j]);
-           }
-            
-        }
-        printf("\n");
-        repeter("|             |", COLONNES);
-        repeter("|             |", COLONNES);
-        repeter("|             |", COLONNES);
-        repeter("|_____________|", COLONNES);
-        
-    }
-   
+    retourner_carte ( plateau,choix1);
+    retourner_carte(plateau,choix2);
+    
+    afficher_plateau(plateau);
+
     return 0;
 }
 
